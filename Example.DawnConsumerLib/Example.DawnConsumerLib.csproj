@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 
+      Square brackets pin the version to this specific version.
+      Otherwise, nuget interprets the "1.0.0" as ">= 1.0.0".
+    -->
+    <PackageReference Include="Dawn.Guard" Version="[1.0.0]" />    
+  </ItemGroup>
+
+</Project>

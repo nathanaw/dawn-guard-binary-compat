@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 
+      Force the console app to use version 1.12.0 instead of the "1.0.0" used by the library.
+      Square brackets around the version number pin the version to that specific value.
+      Without the brackets, the version means ">= 1.12.0"
+    -->
+    <PackageReference Include="Dawn.Guard" Version="[1.12.0]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    
+    <!--
+      Using a DLL reference here so that the build process will use a different version for the library
+      than for the console app. 
+      
+      By default, nuget versioning inside a solution will attempt to find the versions
+      that satisfy all projects, when the projects use project references.
+    -->
+    <Reference Include="Example.DawnConsumerLib">
+      <HintPath>..\Example.DawnConsumerLib\bin\Debug\netstandard2.0\Example.DawnConsumerLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
